@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Comic Relief", system-ui;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilo geral do cabeçalho */
+header {
+    background-color: #121212; /* fundo escuro, estilo moderno */
+    padding: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 1.8); /* combina com #00ff88 */
+    z-index: 1000;
+}
+
+/* Container centralizado com largura máxima */
+.container-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+/* Box com logo e título lado a lado */
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* Logo com tamanho fixo e responsivo */
+.box-header img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background-color: transparent;
+}
+
+/* Título estilizado */
+.box-header h2 {
+    font-size: 1.8rem;
+    color: #00ff88; /* tom neon fitness */
+    font-weight: bold;
+    font-family: "Comic Relief", system-ui;
+    letter-spacing: 1px;
+    background-color: transparent;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nicolas de Almeida Sousa"/>
+    <meta name="description" content="Calculadora de calorias e IMC"/>
+    <meta name="keywords" content="Calculadora de Calorias, Calorias, IMC, Peso, Altura">
+
+    <link rel="icon" type="" sizes="16x16"  href="Img/calculadora.png">
+    
+    <link rel="stylesheet" href="Css/styleHeader.css">
+    <link rel="stylesheet" href="Css/styleCalculadora.css">
+    <link rel="stylesheet" href="Css/styleResultados.css">
+    <link rel="stylesheet" href="Css/styleFooter.css">
+
+    <script src="Js/script.Js"></script>
+
+    <title>Calculadora de Calorias</title>
+</head>
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="box-header">
+                <img src="Img/Logo.png" alt="Logo de academia">
+                <h2>Zer0Kcalc</h2>
+            </div>
+        </div>
+    </header>
+
+    <!-- Calculadora -->
+    <div class="container-calculadora">
+        <div class="boxCalculadora">
+            <h1>Calculadora de Gasto Calórico</h1>
+            <h6>Realize o cálculo calórico diário!</h6>
+
+            <div class="boxCampos">
+                <!-- Idade -->
+                <div class="campo">
+                    <label for="idade">
+                        Idade: <img src="Img/meia-idade.png" alt="Ícone de idade">
+                    </label>
+                    <input type="text" id="idade" name="idade" maxlength="3">
+                </div>
+
+                <!-- Altura -->
+                <div class="campo">
+                    <label for="altura">
+                        Altura: <img src="Img/altura.png" alt="Ícone de altura">
+                    </label>
+                    <input type="text" id="altura" name="altura" placeholder="Ex: 1,72" maxlength="4">
+                </div>
+
+                <!-- Peso -->
+                <div class="campo">
+                    <label for="peso">
+                        Peso: <img src="Img/peso.png" alt="Ícone de peso">
+                    </label>
+                    <input type="text" id="peso" name="peso" placeholder="Ex: 84,400" maxlength="6">
+                </div>
+
+                <!-- Sexo -->
+                <div class="campo">
+                    <label for="sexo">
+                        Sexo: <img src="Img/sexos.png" alt="Ícone de sexo">
+                    </label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="">Selecione</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                </div>
+
+                <!-- Nível de atividade física -->
+                <div class="campo">
+                    <label for="atividade">
+                        Nível de atividade física: <img src="Img/academia.png" alt="">
+                    </label>
+
+                    <select id="atividade" name="atividade">
+                        <option value="">Selecione</option>
+                        <option value="1.2">Não faço nenhum exercício</option>
+                        <option value="1.375">Ocasionalmente (1 ou 2 por semana)</option>
+                        <option value="1.55">Moderadamente (3 a 4 por semana)</option>
+                        <option value="1.725">Frequente (5 a 6 por semana)</option>
+                        <option value="1.9">Bodybuilding (7 dias por semana ou 2x ao dia)</option>
+                    </select>
+                </div>
+
+                <button class="calc-calorias" onclick="calcularResultados()">Calcular Calorias</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="container-resultado">
+
+        <!-- Resultado Calórico -->
+        <div class="box-resultado-calorico">
+            <h3>Resultado Calórico</h3>
+
+            <h6>
+                Uma pessoa do sexo <span id="trazerSexo">XX</span>, com aproximadamente 
+                <span id="trazerIdade">XX</span> anos, 
+                <span id="trazerAltura">XXX</span> cm de altura e 
+                <span id="trazerPeso">XX</span> kg de peso.<br>
+            </h6>
+
+            <div class="box-info">
+                <p>Com base nos dados informados, o seu gasto calórico diário é de <strong><span id="trazerResultado2">XXXX</span> calorias</strong>.</p>
+                <p>Isso equivale a aproximadamente <strong><span id="trazerResultadoSemana">XXXX</span></strong> calorias por semana.</p>
+                <p>Sua taxa metabólica basal (TMB) é de <strong><span id="trazerTaxaBasal">XXXX</span> calorias</strong> por dia.</p>
+                <p><em>A taxa metabólica basal representa a energia mínima necessária para manter as funções vitais do seu corpo em repouso.</em></p>
+            </div>
+
+            <div class="boxOpcoes">
+                <!-- Ganho de peso -->
+                <div class="boxGanhoPeso">
+                    <h3>Para Ganhar Peso</h3>
+                    <p>Para ganho saudável de peso, recomenda-se um superávit calórico de aproximadamente 500 calorias por dia.</p>
+                    <p>Consuma cerca de <strong><span id="trazerResultadoMais">XXXX</span> calorias</strong> por dia.</p>
+                </div>
+
+                <!-- Perda de peso -->
+                <div class="boxPerdaPeso">
+                    <h3>Para Perder Peso</h3>
+                    <p>Para emagrecimento saudável, recomenda-se um déficit calórico de cerca de 500 calorias por dia.</p>
+                    <p>Consuma cerca de <strong><span id="trazerResultadoMenos">XXXX</span> calorias</strong> por dia.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultado de IMC -->
+        <div class="box-resultado-imc">
+            <h3>Índice de Massa Corporal (IMC)</h3>
+            <h6>Veja se você está no peso ideal de acordo com a sua altura e peso.</h6>
+
+            <p>Seu IMC é: <strong><span id="trazerIMC">XX.XX</span></strong></p>
+            <p>Classificação: <strong><span id="trazerClassificacaoIMC">---</span></strong></p>
+
+            <div class="box-table">
+                <table>
+                    <thead>
+                        <tr><th>IMC</th><th>Classificação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Menor que 18,5</td><td>Abaixo do peso</td></tr>
+                        <tr><td>18,5 – 24,9</td><td>Peso normal</td></tr>
+                        <tr><td>25 – 29,9</td><td>Sobrepeso</td></tr>
+                        <tr><td>30 – 34,9</td><td>Obesidade grau 1</td></tr>
+                        <tr><td>35 – 39,9</td><td>Obesidade grau 2</td></tr>
+                        <tr><td>40 ou mais</td><td>Obesidade grau 3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<footer>
+  <div class="footer-content">
+    <a href="https://www.flaticon.com/br/icones-gratis/peso" title="peso ícones">Peso ícones criados por Freepik - Flaticon</a>
+    <a href="https://www.flaticon.com/br/icones-gratis/exercite-se" title="exercite-se ícones">Exercite-se ícones criados por Aldo Cervantes - Flaticon</a> /
+    <a href="https://www.flaticon.com/br/icones-gratis/altura" title="altura ícones">Altura ícones criados por Mayor Icons - Flaticon</a> /
+    <a href="https://www.flaticon.com/br/icones-gratis/masculino-e-feminino" title="masculino e feminino ícones">Masculino e feminino ícones criados por Good Ware - Flaticon</a> /
+    <a href="https://www.flaticon.com/br/icones-gratis/meia-idade" title="meia idade ícones">Meia idade ícones criados por Freepik - Flaticon</a> /
+    <a href="https://www.flaticon.com/br/icones-gratis/calculadora" title="calculadora ícones">Calculadora ícones criados por Freepik - Flaticon</a>
+  </div>
+</footer>
+
+</body>
+</html>

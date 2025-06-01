@@ -1,0 +1,123 @@
+.container-resultado {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #f4f4f4;
+    background-color: #1b1b1b;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.25);
+}
+
+span, strong, p, em{
+    background-color: transparent;
+}
+
+.box-resultado-calorico,
+.box-resultado-imc {
+    flex: 1 1 48%; /* ocupa 48% com margem entre eles */
+    background-color: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 255, 136, 0.2);
+    min-width: 300px; /* evita que fique muito estreito */
+}
+
+@media (max-width: 768px) {
+    .box-resultado-calorico,
+    .box-resultado-imc {
+        flex: 1 1 100%; /* empilha verticalmente */
+    }
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: #00ff88;
+    margin-bottom: 0.8rem;
+    background-color: transparent;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: #ddd;
+    background-color: transparent;
+}
+
+.box-info{
+    background-color: transparent;
+}
+
+.box-info p {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+}
+
+.boxOpcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: transparent;
+}
+
+.boxGanhoPeso,
+.boxPerdaPeso {
+    background-color: #333;
+    padding: 1rem;
+    border-left: 5px solid #00c37a;
+    border-radius: 8px;
+}
+
+.boxGanhoPeso h3,
+.boxPerdaPeso h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.box-resultado-imc p {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    background-color: transparent;
+}
+
+.box-table {
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+.box-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+.box-table th,
+.box-table td {
+    padding: 0.8rem 1rem;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.box-table th {
+    background-color: #00c37a;
+    color: #111;
+}
+
+.box-table td {
+    background-color: #2a2a2a;
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+    .boxOpcoes {
+        flex-direction: row;
+    }
+    .boxGanhoPeso,
+    .boxPerdaPeso {
+        flex: 1;
+    }
+}

@@ -1,0 +1,145 @@
+/* Container geral centralizado */
+.container-calculadora {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    background-color: transparent;
+}
+
+/* Caixa da calculadora */
+.boxCalculadora {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 650px;
+    width: 100%;
+    background-color: transparent;
+}
+
+/* Títulos */
+.boxCalculadora h1 {
+    font-size: 2rem;
+    color: #00c37a;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.boxCalculadora h6 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: transparent;
+}
+
+/* Campos agrupados */
+.boxCampos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: transparent;
+}
+
+/* Cada linha de campo */
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+}
+
+/* Label com imagem */
+.campo label {
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    background-color: transparent;
+}
+
+/* Ícone ao lado do texto */
+.campo label img {
+    width: 25px;
+    height: 25px;
+    margin-left: 8px;
+    background-color: transparent;
+}
+
+/* Inputs e selects */
+.campo input,
+.campo select {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #ececec;
+}
+
+select{
+    cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.calc-calorias {
+    margin: 5% auto 0; /* margem superior de 5%, centraliza horizontalmente */
+    display: block; /* garante centralização com margin auto */
+    width: 12rem;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-weight: 600;
+    background-color: #00c37a;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+/* Efeito ao passar o mouse ou clicar */
+.calc-calorias:hover,
+.calc-calorias:active {
+    background-color: #29ce91;
+    transform: scale(1.03);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .campo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .campo label {
+        min-width: 160px; /* antes era 200px */
+    }
+
+
+    .campo input,
+    .campo select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .calc-calorias{
+        width: 8rem;
+    }
+}

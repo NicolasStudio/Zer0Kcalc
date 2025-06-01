@@ -88,6 +88,9 @@ function calcularResultados() {
 
   document.getElementById("trazerIMC").textContent = imc.toFixed(1).replace('.', ',');
   document.getElementById("trazerClassificacaoIMC").textContent = classificacaoIMC;
+
+  const elemento = document.getElementById('container-resultado');
+  elemento.style.display = 'flex'; 
 }
 
 // Adiciona o evento no input altura para aplicar máscara enquanto digita

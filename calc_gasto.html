@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="Css/styleFooter.css">
 
     <script src="Js/script.Js"></script>
+    <script src="Js/scriptCalorias.Js"></script>
 
     <title>Calculadora de Calorias</title>
 </head>
@@ -51,6 +52,11 @@
                     </label>
                     <input type="text" id="altura" name="altura" placeholder="Ex: 1,72" maxlength="4">
                 </div>
+
+                <script>
+                    // Adiciona o evento no input altura para aplicar máscara enquanto digita
+                    document.getElementById("altura").addEventListener("input", formatarAlturaInput);
+                </script>
 
                 <!-- Peso -->
                 <div class="campo">

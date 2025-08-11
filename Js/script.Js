@@ -101,7 +101,7 @@ function calcularResultados() {
 document.getElementById("altura").addEventListener("input", formatarAlturaInput);
 
 // Calculo do Percentual
-function calcularResultados() {
+function calcularPercentualResultados {
     // Obter valores dos campos
     const idade = parseInt(document.getElementById('idade').value);
     const sexo = document.getElementById('sexo').value;
@@ -239,3 +239,4 @@ function obterInterpretacao(classificacao) {
     
     return interpretacoes[classificacao] || "Consulte um profissional de saúde para orientação personalizada.";
 }
+

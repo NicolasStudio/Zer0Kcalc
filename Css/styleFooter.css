@@ -1,25 +1,62 @@
+/* Layout principal */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa pelo menos toda a altura da viewport */
+}
+
+main {
+    flex: 1; /* Faz o main ocupar todo o espaço disponível */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Estilos do footer (como você forneceu, com melhorias) */
 footer {
-  background-color: #333;
-  padding: 20px 0;
-  color: #fff;
-  font-size: 0.8rem;
-  margin-top: 5%;
+    width: 100%;
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 0.8rem;
+    margin-top: auto; /* Mantém o footer no final */
 }
 
 .footer-content {
-  max-width: 1800px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: transparent;
+    max-width: 1800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
 }
 
 .footer-content a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0 6px;
-  background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 6px;
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
 
 .footer-content a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+    color: #4CAF50; /* Cor de hover personalizada */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer-content a {
+        padding: 5px 0;
+        display: block;
+    }
 }

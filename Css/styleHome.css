@@ -1,0 +1,76 @@
+.boxOptions{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.option-card {
+    width: 300px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #00ff88;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.icon-circle img {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+}
+
+.option-card h3 {
+    color: #00ff88;
+    margin-bottom: 15px;
+    background-color: transparent;
+}
+
+.option-card p {
+    color: #ddd;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+.btn-option {
+    background: #00c37a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-option:hover {
+    background: #00ff88;
+}
+
+@media (max-width: 768px) {
+    .home-options {
+        flex-direction: column;
+        align-items: center;
+    }
+}

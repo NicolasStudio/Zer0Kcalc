@@ -62,14 +62,6 @@
     background-color: transparent;
 }
 
-/* Ícone ao lado do texto */
-.campo label img {
-    width: 25px;
-    height: 25px;
-    margin-left: 8px;
-    background-color: transparent;
-}
-
 /* Inputs e selects */
 .campo input,
 .campo select {
@@ -79,6 +71,14 @@
     border-radius: 6px;
     font-size: 1rem;
     background-color: #ececec;
+}
+
+/* Ícone ao lado do texto */
+.campo label img {
+    width: 25px;
+    height: 25px;
+    margin-left: 8px;
+    background-color: transparent;
 }
 
 select{
@@ -116,6 +116,28 @@ input[type="number"] {
 /* Efeito ao passar o mouse ou clicar */
 .calc-calorias:hover,
 .calc-calorias:active {
+    background-color: #29ce91;
+    transform: scale(1.03);
+}
+.calc-Percentual {
+    margin: 5% auto 0; /* margem superior de 5%, centraliza horizontalmente */
+    display: block; /* garante centralização com margin auto */
+    width: 16rem;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-weight: 600;
+    background-color: #00c37a;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+/* Efeito ao passar o mouse ou clicar */
+.calc-Percentual:hover,
+.calc-Percentual:active {
     background-color: #29ce91;
     transform: scale(1.03);
 }

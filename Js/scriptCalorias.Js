@@ -1,4 +1,4 @@
-
+//  Mascára de Altura
 function formatarAlturaInput(event) {
   let valor = event.target.value;
 
@@ -15,6 +15,36 @@ function formatarAlturaInput(event) {
     valor = valor.slice(0, 4);
   }
 
+  event.target.value = valor;
+}
+
+// Mascára Peso
+function formatarPesoInput(event) {
+  let valor = event.target.value;
+
+  // Remove tudo que não for dígito ou vírgula
+  valor = valor.replace(/[^\d,]/g, '');
+
+  // Remove vírgulas extras, mantendo apenas a primeira
+  const partes = valor.split(',');
+  if (partes.length > 1) {
+    valor = partes[0] + ',' + partes.slice(1).join('');
+  }
+
+  // Se não tiver vírgula e tiver 3 ou mais dígitos, insere a vírgula após os 2 primeiros dígitos
+  if (!valor.includes(',') && valor.length > 2) {
+    valor = valor.slice(0, 2) + ',' + valor.slice(2);
+  }
+
+  // Limita a parte inteira a 3 dígitos e a decimal a 3 dígitos (formato: 999,999)
+  if (valor.includes(',')) {
+    const [inteira, decimal] = valor.split(',');
+    valor = inteira.slice(0, 3) + ',' + (decimal ? decimal.slice(0, 3) : '');
+  } else {
+    valor = valor.slice(0, 3); // Limita a 3 dígitos se não tiver vírgula
+  }
+
+  // Atualiza o valor do campo
   event.target.value = valor;
 }
 
@@ -118,5 +148,18 @@ function calcularResultados() {
   atualizarElemento("trazerClassificacaoIMC", classificacaoIMC);
 
   // Mostrar resultados
+
   resultadoContainer.style.display = 'flex';
+      setTimeout(() => {
+        resultadoContainer.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // 6. Opcional: Remover a classe depois de 1 segundo
+        setTimeout(() => {
+            document.documentElement.classList.remove('smooth-scroll');
+        }, 1000);
+    }, 100);
 }
+

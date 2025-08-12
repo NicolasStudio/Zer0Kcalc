@@ -93,14 +93,33 @@ function classificarPercentualGordura(percentual, sexo, idade) {
 }
 
 function exibirResultados(percentual, classificacao) {
-    // Preencher os elementos existentes
+    // 1. Preencher os elementos com os resultados
     document.getElementById('percentual-valor').textContent = `${percentual}%`;
     document.getElementById('classificacao-valor').textContent = classificacao;
     document.getElementById('interpretacao-valor').textContent = obterInterpretacao(classificacao);
     document.getElementById('recomendacoes-valor').textContent = obterRecomendacoes(classificacao);
     
-    // Mostrar o container de resultados
-    document.getElementById('container-resultado').style.display = 'flex';
+    // 2. Obter referência ao container de resultados
+    const resultadoContainer = document.getElementById('container-resultado');
+    
+    // 3. Mostrar o container (mudei para 'block' que é mais adequado)
+    resultadoContainer.style.display = 'block';
+    
+    // 4. Adicionar classe de scroll suave ao HTML
+    document.documentElement.classList.add('smooth-scroll');
+    
+    // 5. Efeito de scroll com pequeno delay para garantir renderização
+    setTimeout(() => {
+        resultadoContainer.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // 6. Opcional: Remover a classe depois de 1 segundo
+        setTimeout(() => {
+            document.documentElement.classList.remove('smooth-scroll');
+        }, 1000);
+    }, 100);
 }
 
 // Mantenha as funções auxiliares existentes:
@@ -136,4 +155,34 @@ function obterInterpretacao(classificacao) {
     };
     
     return interpretacoes[classificacao] || "Consulte um profissional de saúde para orientação personalizada.";
+}
+
+// Mascára Peso
+function formatarPesoInput(event) {
+  let valor = event.target.value;
+
+  // Remove tudo que não for dígito ou vírgula
+  valor = valor.replace(/[^\d,]/g, '');
+
+  // Remove vírgulas extras, mantendo apenas a primeira
+  const partes = valor.split(',');
+  if (partes.length > 1) {
+    valor = partes[0] + ',' + partes.slice(1).join('');
+  }
+
+  // Se não tiver vírgula e tiver 3 ou mais dígitos, insere a vírgula após os 2 primeiros dígitos
+  if (!valor.includes(',') && valor.length > 2) {
+    valor = valor.slice(0, 2) + ',' + valor.slice(2);
+  }
+
+  // Limita a parte inteira a 3 dígitos e a decimal a 3 dígitos (formato: 999,999)
+  if (valor.includes(',')) {
+    const [inteira, decimal] = valor.split(',');
+    valor = inteira.slice(0, 3) + ',' + (decimal ? decimal.slice(0, 3) : '');
+  } else {
+    valor = valor.slice(0, 3); // Limita a 3 dígitos se não tiver vírgula
+  }
+
+  // Atualiza o valor do campo
+  event.target.value = valor;
 }

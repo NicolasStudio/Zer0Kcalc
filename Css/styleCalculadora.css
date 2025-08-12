@@ -1,3 +1,13 @@
+html.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Estilo do container de resultados */
+.container-resultado {
+    display: none; /* Já deve estar no seu CSS */
+    transition: all 0.5s ease; /* Para futuras animações */
+}
+
 /* Container geral centralizado */
 .container-calculadora {
     display: flex;

@@ -43,7 +43,7 @@
                     <label for="idade">
                         Idade: <img src="Img/meia-idade.png" alt="Ícone de idade">
                     </label>
-                    <input type="text" id="idade" name="idade" maxlength="3">
+                    <input type="text" id="idade" name="idade" maxlength="3" placeholder="Ex: 30 Anos">
                 </div>
 
                 <!-- Peso -->
@@ -53,6 +53,11 @@
                     </label>
                     <input type="text" id="peso" name="peso" placeholder="Ex: 84,400" maxlength="6">
                 </div>
+
+                <script>
+                    // Adicionando o event listener ao campo de peso
+                    document.getElementById('peso').addEventListener('input', formatarPesoInput);
+                </script>
 
                 <!-- Sexo -->
                 <div class="campo">
